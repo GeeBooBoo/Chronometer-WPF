@@ -10,6 +10,8 @@ namespace Cronometer_WPF
     public class ChronometerViewModel : INotifyPropertyChanged, ICommand
     {
 
+        #region Constructors
+
         DispatcherTimer dt = new DispatcherTimer();
 
         public ChronometerViewModel()
@@ -34,6 +36,8 @@ namespace Cronometer_WPF
                 Minutes = 0;
             }
         }
+
+        #endregion
 
         #region Properties
 
