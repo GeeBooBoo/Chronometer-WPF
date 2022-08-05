@@ -7,12 +7,12 @@ using System.Windows.Threading;
 
 namespace Cronometer_WPF
 {
-    public class CountModel : INotifyPropertyChanged, ICommand
+    public class ChronometerViewModel : INotifyPropertyChanged, ICommand
     {
 
         DispatcherTimer dt = new DispatcherTimer();
 
-        public CountModel()
+        public ChronometerViewModel()
         {
             dt.Interval = TimeSpan.FromSeconds(1);
             dt.Tick += IncreaseTimer;

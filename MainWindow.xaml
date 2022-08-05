@@ -13,7 +13,7 @@
         MouseDown="Window_MouseDown">
 
     <Window.DataContext>
-        <local:CountModel/>
+        <local:ChronometerViewModel/>
     </Window.DataContext>
 
     <Grid>
@@ -64,8 +64,6 @@
                    Grid.Row="1" 
                    Margin="165,0,0,0"
                    Style="{StaticResource ResourceKey=labelStyle}"/>
-
-
 
             <Button Command="{Binding Start}" Grid.Row="2"                   
                     Style="{StaticResource ResourceKey=buttonsStyle}"
