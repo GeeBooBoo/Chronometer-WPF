@@ -39,7 +39,6 @@
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="25"/>
 
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -63,10 +62,13 @@
     <!--#region Labels Style-->
 
     <Style x:Name="LabelStyles" x:Key="labelStyle" TargetType="Label">
-        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontSize" Value="50"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#C0D8F0"/>
-        
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+
     </Style>
     <!--#endregion-->
 

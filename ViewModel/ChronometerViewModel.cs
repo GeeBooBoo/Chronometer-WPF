@@ -10,21 +10,26 @@ namespace Cronometer_WPF
     public class ChronometerViewModel : INotifyPropertyChanged, ICommand
     {
 
-        #region Constructors
+        #region Constructor
 
         DispatcherTimer dt = new DispatcherTimer();
 
         public ChronometerViewModel()
         {
-            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Interval = TimeSpan.FromMilliseconds(1);
             dt.Tick += IncreaseTimer;
         }
 
         private void IncreaseTimer(object sender, EventArgs e)
         {
             if (dt.IsEnabled)
-                Seconds++;
+                Milliseconds++;
 
+            if (Milliseconds > 100)
+            {
+                Seconds++;
+                Milliseconds = 0;
+            }
             if (Seconds > 60)
             {
                 Minutes++;
@@ -41,6 +46,17 @@ namespace Cronometer_WPF
 
         #region Properties
 
+        private int _milliseconds;
+        public int Milliseconds
+        {
+            get { return _milliseconds; }
+            set
+            {
+                _milliseconds = value;
+                OnPropertyChanged(nameof(Milliseconds));
+            }
+        }
+
         private int _seconds;
         public int Seconds
         {
@@ -51,6 +67,7 @@ namespace Cronometer_WPF
                 OnPropertyChanged(nameof(Seconds));
             }
         }
+
         private int _minutes;
         public int Minutes
         {
@@ -61,6 +78,7 @@ namespace Cronometer_WPF
                 OnPropertyChanged(nameof(Minutes));
             }
         }
+
         private int _hours;
         public int Hours
         {
@@ -88,18 +106,6 @@ namespace Cronometer_WPF
             }               
         }
 
-        private ICommand _stop;
-        public ICommand Stop
-        {
-            get
-            {
-                if (_stop == null)
-                    _stop = new RelayCommand(ExecuteStopTimer, CanExecute);
-
-                return _stop;
-            }
-        }
-
         private ICommand _pause;
         public ICommand Pause
         {
@@ -110,16 +116,29 @@ namespace Cronometer_WPF
 
                 return _pause;
             }
-            
+
         }
 
-        private void ExecutePauseTimer() => dt.Stop();
+        private ICommand _stop;
+        public ICommand Stop
+        {
+            get
+            {
+                if (_stop == null)
+                    _stop = new RelayCommand(ExecuteStopTimer, CanExecute);
+
+                return _stop;
+            }
+        }       
 
         private void ExecuteStartTimer() => dt.Start();
+
+        private void ExecutePauseTimer() => dt.Stop();
 
         private void ExecuteStopTimer()
         {
             dt.Stop();
+            Milliseconds = 0;
             Seconds = 0;
             Minutes = 0;
             Hours = 0;

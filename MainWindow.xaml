@@ -26,13 +26,41 @@
 
             <Border CornerRadius="10" Background="#486060" Grid.RowSpan="3"/>
 
+            <!--#region Labels-->
+            
+            <Label Content="{Binding Hours}" 
+                   Margin="-200,0,0,0"
+                   Style="{StaticResource ResourceKey=labelStyle}"/>
+            
+            <Label Content=":" Grid.Row="1" Margin="70,0,0,0" VerticalAlignment="Center" FontSize="40"/>
+
+            <Label Content="{Binding Minutes}"
+                   Margin="-80,0,0,0"
+                   Style="{StaticResource ResourceKey=labelStyle}"/>
+            
+            <Label Content=":" Grid.Row="1" Margin="135,0,0,0" VerticalAlignment="Center" FontSize="40"/>
+
+            <Label Content="{Binding Seconds}"
+                   Margin="60,0,0,0"
+                   Style="{StaticResource ResourceKey=labelStyle}"/>
+
+            <Label Content=":" Grid.Row="1" Margin="205,0,0,0" VerticalAlignment="Center" FontSize="40"/>
+
+            <Label Content="{Binding Milliseconds}"
+                   Margin="200,0,0,0"
+                   Style="{StaticResource ResourceKey=labelStyle}"/>
+            
+            <!--#endregion-->
+            
+            <!--#region Buttons-->
+
             <Button x:Name="CloseButton" 
                     Click="CloseButton_Click" 
                     Style="{StaticResource closeButtonsStyle}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"                  
                     Content="X"/>
-            
+
             <Button x:Name="MinimizeButton"
                     Click="MinimizeButton_Click"
                     Style="{StaticResource closeButtonsStyle}"
@@ -40,30 +68,6 @@
                     HorizontalAlignment="Right"  
                     Margin="32,0"
                     Content="_"/>
-
-            <Label Content="{Binding Hours}"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center" 
-                   Grid.Row="1"
-                   Margin="-165,0,0,0"
-                   Style="{StaticResource ResourceKey=labelStyle}"/>
-            
-            <Label Content=":" Grid.Row="1" Margin="100,0,0,0" VerticalAlignment="Center" FontSize="45"/>
-
-            <Label Content="{Binding Minutes}"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center" 
-                   Grid.Row="1"
-                   Style="{StaticResource ResourceKey=labelStyle}"/>
-            
-            <Label Content=":" Grid.Row="1" Margin="180,0,0,0" VerticalAlignment="Center" FontSize="45"/>
-
-            <Label Content="{Binding Seconds}"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center" 
-                   Grid.Row="1" 
-                   Margin="165,0,0,0"
-                   Style="{StaticResource ResourceKey=labelStyle}"/>
 
             <Button Command="{Binding Start}" Grid.Row="2"                   
                     Style="{StaticResource ResourceKey=buttonsStyle}"
@@ -85,6 +89,8 @@
 
                 <Image Source="Icons/stop60.png" Height="40"/>
             </Button>
+            
+            <!--#endregion-->
         </Grid>
     </Grid>
     
