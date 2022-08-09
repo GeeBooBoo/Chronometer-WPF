@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:Cronometer_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="300"
+        Title="MainWindow" Height="250" Width="300"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
@@ -49,7 +49,7 @@
             <Label Content="{Binding Milliseconds}"
                    Margin="200,0,0,0"
                    Style="{StaticResource ResourceKey=labelStyle}"/>
-            
+
             <!--#endregion-->
             
             <!--#region Buttons-->
@@ -91,6 +91,7 @@
             </Button>
             
             <!--#endregion-->
+            
         </Grid>
     </Grid>
     

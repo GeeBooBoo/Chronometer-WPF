@@ -133,7 +133,11 @@ namespace Cronometer_WPF
 
         private void ExecuteStartTimer() => dt.Start();
 
-        private void ExecutePauseTimer() => dt.Stop();
+        private void ExecutePauseTimer()
+        {
+            dt.Stop();
+            
+        }
 
         private void ExecuteStopTimer()
         {
